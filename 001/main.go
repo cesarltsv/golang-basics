@@ -11,4 +11,6 @@ func main() {
 	useSlices()
 	splitSection("Basic Maps")
 	useMaps()
+	splitSection("Basic Function")
+	useFunctions()
 }
