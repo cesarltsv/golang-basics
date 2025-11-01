@@ -9,4 +9,6 @@ func main() {
 	useArrays()
 	splitSection("Basic Slices")
 	useSlices()
+	splitSection("Basic Maps")
+	useMaps()
 }
