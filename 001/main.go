@@ -7,4 +7,6 @@ func main() {
 	createTypes()
 	splitSection("Basic Arrays")
 	useArrays()
+	splitSection("Basic Slices")
+	useSlices()
 }

@@ -21,5 +21,5 @@ func basicVariables() {
 	fmt.Printf("machine name %s \n", machineName)
 	fmt.Printf("isActive: %t, age: %d, score: %f \n", isActive, age, score)
 
-	fmt.Printf("calculation: %d \n", Add(3, 4))
+	fmt.Printf("calculation: %d \n", AddNumber(3, 4))
 }
