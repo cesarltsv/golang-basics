@@ -5,4 +5,6 @@ func main() {
 	basicVariables()
 	splitSection("types")
 	createTypes()
+	splitSection("Basic Arrays")
+	useArrays()
 }
