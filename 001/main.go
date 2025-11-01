@@ -13,4 +13,6 @@ func main() {
 	useMaps()
 	splitSection("Basic Function")
 	useFunctions()
+	splitSection("Basic Structs")
+	useStructs()
 }
