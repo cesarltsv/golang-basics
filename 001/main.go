@@ -25,4 +25,6 @@ func main() {
 	useInterfaceSeconPart()
 	splitSection("Basic Type Assertion")
 	useTypeAssertion()
+	splitSection("Basic Generics")
+	useGenerics()
 }
