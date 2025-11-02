@@ -17,4 +17,6 @@ func main() {
 	useStructs()
 	splitSection("Basic Interfaces")
 	useInterfaces()
+	splitSection("Basic Pointers")
+	usePointers()
 }
