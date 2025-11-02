@@ -23,4 +23,6 @@ func main() {
 	usePointerStructs()
 	splitSection("Basic Interface second part")
 	useInterfaceSeconPart()
+	splitSection("Basic Type Assertion")
+	useTypeAssertion()
 }
