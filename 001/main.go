@@ -15,4 +15,6 @@ func main() {
 	useFunctions()
 	splitSection("Basic Structs")
 	useStructs()
+	splitSection("Basic Interfaces")
+	useInterfaces()
 }
