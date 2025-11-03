@@ -3,24 +3,18 @@ package main
 import (
 	"fmt"
 	"log"
-	"strings"
 
 	"github.com/xuri/excelize/v2"
+	"loto.com/script/game"
+	"loto.com/script/organize"
+	"loto.com/script/utils"
 )
 
-const FILE_NAME = "results.xlsx"
-const START_NUMBER_COL = 1
-const FINISH_NUMBER_COL = 8
-var gameList = make(map[int] Game)
 
-type Game struct {
-	ReleaseDate string
-	Numbers string
-}
-
+var gameList = make(map[int] game.Game)
 
 func main() {
-	file, err := excelize.OpenFile(FILE_NAME)
+	file, err := excelize.OpenFile(utils.FileName)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -38,24 +32,8 @@ func main() {
 
 	
 	for i, row := range rows {
-		game := []string{}
-		releaseDate := ""
-
-		for index, colCell := range row {
-			if index > START_NUMBER_COL && index < FINISH_NUMBER_COL {
-				game = append(game, colCell)
-			}
-			if index == START_NUMBER_COL {
-				releaseDate = colCell
-			}
-		}
-
-		if i > START_NUMBER_COL {
-			gameList[i] = Game{
-				Numbers: strings.Join(game, ","),
-				ReleaseDate: releaseDate,
-			} 
-		}
+		game, releaseDate := organize.GetGamesData(row)
+		gameList[i] = organize.HandleGameObject(i, game, releaseDate)
 	}
 
 	for _, v := range gameList {
