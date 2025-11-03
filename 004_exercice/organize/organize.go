@@ -11,9 +11,9 @@ import (
 
 func HandleGameObject(currentCol int, numbers []string, date string) game.Game {
 	if currentCol > utils.StartColumn {
-		return game.Create(strings.Join(numbers, ","), date)
+		return game.Create(strings.Join(numbers, ","), date, currentCol)
 	}
-	return game.Create("", "")
+	return game.Create("", "", currentCol)
 }
 
 func GetGamesData(row []string) ([]string, string) {

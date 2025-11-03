@@ -29,15 +29,18 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	
 	for i, row := range rows {
 		game, releaseDate := organize.GetGamesData(row)
 		gameList[i] = organize.HandleGameObject(i, game, releaseDate)
 	}
 
+	
+
 	for _, v := range gameList {
-		fmt.Printf("date: %v, value: %v \n", v.ReleaseDate, v.Numbers )
+		fmt.Printf("date: %v", v )
+		fmt.Printf("date: %v, value: %v, id: %v \n", v.ReleaseDate, v.Numbers, v.Id )
 	}
 
+	
 }
