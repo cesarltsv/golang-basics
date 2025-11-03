@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	// creation
+	// creation	
 	f, err := os.Create("users.txt")
 	if err != nil {
 		panic(err)
