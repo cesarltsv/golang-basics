@@ -6,7 +6,7 @@ import (
 )
 
 func useExternalTemplates() {
-	t := template.Must(template.New("template.html").ParseFiles("template.html"))
+	t := template.Must(template.New("templateComplete.html").ParseFiles("templateComplete.html"))
 	err := t.Execute(os.Stdout, Courses{
 		{"Go", 40},
 		{"Javascript", 40},

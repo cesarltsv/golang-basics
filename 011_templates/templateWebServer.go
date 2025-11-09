@@ -26,7 +26,11 @@ func homeController(w http.ResponseWriter, r *http.Request) {
 }
 
 func getTemplate() *template.Template {
-	t := template.Must(template.New("template.html").ParseFiles("template.html"))
+	templates := []string{
+		"template.html",
+		"table.html",
+	}
+	t := template.Must(template.New("template.html").ParseFiles(templates...))
 	return t
 }
 
