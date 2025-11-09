@@ -11,4 +11,5 @@ func main(){
 	useBasicTemplate()
 	useBasicTemplateMust()
 	useExternalTemplates()
+	templateWebServer()
 }
