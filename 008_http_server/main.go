@@ -45,7 +45,7 @@ func AddressController(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	json.NewEncoder(w).Encode(address)
-	fmt.Printf("%v", address)
+	fmt.Printf("%v", address)	
 }
 
 func searchAddress(zipcode string) (*Address, error) {
