@@ -5,7 +5,10 @@ type Course struct {
 	Hours int
 }
 
+type Courses []Course
+
 func main(){
 	useBasicTemplate()
 	useBasicTemplateMust()
+	useExternalTemplates()
 }
