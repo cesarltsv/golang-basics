@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/google/uuid"
@@ -28,41 +29,28 @@ func main() {
 	}
 	defer db.Close()
 	product := NewProduct("Notebook", 1.2233)
-	err = insertProduct(db, product)
+	err = useInsert(db, product)
 	if err != nil {
 		panic(err)
 	}
 	product.ID = "b6611c5e-a343-4477-bbce-ddc420a2ea3c"
 	product.Name = "Naruto Uzumaki"
-	err = updateProduct(db, product)
+	err = useUpdate(db, product)
 	if err != nil {
 		panic(err)
 	}
+	selecteProduct, err := useSelect(db, "b6611c5e-a343-4477-bbce-ddc420a2ea3c")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("Product: %s \n", selecteProduct.Name)
+	fmt.Printf("Price: %v \n", selecteProduct.Price)
+	fmt.Printf("id: %s \n", selecteProduct.ID)
 }
 
 
-func insertProduct(db *sql.DB, product *Product) error {
-	stmt, err := db.Prepare("insert into products(id, name, price) values(?, ?, ?)")
-	if err != nil {
-		return err
-	}
-	defer stmt.Close()
-	_, err = stmt.Exec(product.ID, product.Name, product.Price)
-	if err != nil {
-		return err
-	}
-	return nil
-}
 
-func updateProduct(db *sql.DB, product *Product) error {
-	stmt, err := db.Prepare("update products set name = ?, price = ? where id = ?")
-	if err != nil {
-		return err
-	}
-	defer stmt.Close()
-	_, err = stmt.Exec(product.Name, product.Price, product.ID)
-	if err != nil {
-		return err
-	}
-	return nil
-}
+
+
+
