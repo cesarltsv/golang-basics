@@ -47,6 +47,18 @@ func main() {
 	fmt.Printf("Product: %s \n", selecteProduct.Name)
 	fmt.Printf("Price: %v \n", selecteProduct.Price)
 	fmt.Printf("id: %s \n", selecteProduct.ID)
+
+	productList, err := useSelectAll(db)
+	if err != nil {
+		panic(err)
+	}
+	for _, p := range productList {
+		fmt.Printf("\n =================================== \n")
+		fmt.Printf("Product: %s \n", p.Name)
+		fmt.Printf("Price: %v \n", p.Price)
+		fmt.Printf("id: %s \n", p.ID)
+	}
+
 }
 
 
