@@ -59,6 +59,13 @@ func main() {
 		fmt.Printf("id: %s \n", p.ID)
 	}
 
+	err = useDelete(db, "d7b827e0-eadd-485f-879b-82907ce3bbd1")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("deleted")
+
 }
 
 
